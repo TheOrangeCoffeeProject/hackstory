@@ -1,6 +1,6 @@
-# hackstory
+# HackStory
 
-A hacking based game built on Electron. 
+A Hacking Based Desktop Game built using Electron and Angular.
 
 ## Credits
 

@@ -1,5 +1,5 @@
 <div class="splashScreen">
-  <audio src="../../assets/media/BGM/punch-deck-100-seconds.mp3" autoplay id="bgAudio"></audio>
+  <audio src="../../assets/media/BGM/punch-deck-100-seconds.mp3"  id="bgAudio"></audio>
   <button (click)="toggleBGMAudio()" id="play_pause_button" class="play_pause_button">
     <span class="ion ion-ios-volume-high"></span>
   </button>
@@ -20,6 +20,6 @@
     <button class="testing" data-text="NEW GAME">New Game</button>
     <button class="testing" data-text="LOAD GAME">Load Game</button>
     <button (click)="creditsDisplay()" class="testing" data-text="ABOUT APP">ABOUT APP</button>
-    <button class="testing" data-text="EXIT GAME">Exit Game</button>
+    <button class="testing" (click)="quitApp()" data-text="EXIT GAME">Exit Game</button>
   </div>
 </div>

@@ -1,0 +1,25 @@
+{
+  "name": "hackstory",
+  "version": "1.0.0",
+  "description": "A hacking based game built on Electron. ",
+  "main": "mainProcess/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheOrangeCoffeeProject/hackstory.git"
+  },
+  "keywords": [
+    "hackstory",
+    "hacking",
+    "game",
+    "electron"
+  ],
+  "author": "Lucifer Reeves & Rohit Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheOrangeCoffeeProject/hackstory/issues"
+  },
+  "homepage": "https://github.com/TheOrangeCoffeeProject/hackstory#readme"
+}

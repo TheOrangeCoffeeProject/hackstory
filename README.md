@@ -10,4 +10,5 @@ A Hacking Based Desktop Game built using Electron and Angular.
 - Game Cursor from YAWD - https://www.ya-webdesign.com/
 - Fonts:
     - HACKED by DavidLibeau
+    - Helvetica by Linotype
 

@@ -1,6 +1,17 @@
 <div class="splashScreen">
-  <div class="container">
-    <div class="glitch" data-text="HACKSTORY">HACKSTORY</div>
-    <div class="glow">HACKSTORY</div>
-  </div>
+  <audio
+    src="../../assets/media/BGM/punch-deck-100-seconds.mp3"
+    id="bgAudio"
+  ></audio>
+  <button
+    (click)="toggleBGMAudio()"
+    id="play_pause_button"
+    class="play_pause_button"
+  >
+    <span class="ion ion-ios-volume-high"></span>
+  </button>
+</div>
+<div class="container">
+  <div class="glitch" data-text="HACKERSTORY">HACKSTORY</div>
+  <div class="glow">HACKSTORY</div>
 </div>

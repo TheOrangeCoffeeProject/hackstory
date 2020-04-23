@@ -1,21 +1,13 @@
 {
-  "name": "angular-electron",
-  "version": "7.0.4",
-  "description": "Angular 9 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "hackstory",
+  "version": "1.0.0",
+  "description": "A Hacking Based Desktop Game built using Electron and Angular",
+  "homepage": "https://github.com/TheOrangeCoffeeProject/hackstory",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "The Orange Coffee Project Team",
+    "email": "theorangecoffeeproject@gmail.com"
   },
-  "keywords": [
-    "angular",
-    "angular 9",
-    "electron",
-    "typescript",
-    "eslint",
-    "spectron",
-    "sass"
-  ],
+  "keywords": [],
   "main": "main.js",
   "private": true,
   "scripts": {

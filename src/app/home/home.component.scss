@@ -10,3 +10,14 @@
     width: 100%;
     height: 100vh;
 }
+
+.play_pause_button {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-size: 2rem;
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}

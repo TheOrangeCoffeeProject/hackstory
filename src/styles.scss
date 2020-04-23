@@ -7,6 +7,12 @@ html, body {
 
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-user-select: none;
+  cursor:url('./assets/media/images/cursor.png'), auto;
+}
+
+button, h1, h2, h3, h4, h5, a {
+  cursor:url('./assets/media/images/cursor.png'), auto;
 }
 
 .loading {

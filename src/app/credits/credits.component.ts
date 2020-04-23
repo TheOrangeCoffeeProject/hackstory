@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-credits',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToSplashScreen() {
+    const audio = new Audio('../../assets/media/BGM/pull-back.mp3');
+    audio.play();
+    this.router.navigate(['']);
   }
 
 }

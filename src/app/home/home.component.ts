@@ -39,7 +39,8 @@ export class HomeComponent implements OnInit {
   }
 
   creditsDisplay() {
-    console.log('credits')
+    const audio = new Audio('../../assets/media/BGM/pull-back.mp3');
+    audio.play();
     this.router.navigate(['credits']);
   }
 

@@ -1,6 +1,11 @@
 import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import { ipcMain } from 'electron';
+
+ipcMain.on('quitGame', (evt, arg) => {
+  app.quit()
+})
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),

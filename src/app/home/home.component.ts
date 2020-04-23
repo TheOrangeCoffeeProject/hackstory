@@ -38,4 +38,9 @@ export class HomeComponent implements OnInit {
     play_pause_button.innerHTML = `<span class="ion ion-ios-volume-high"></span>`
   }
 
+  creditsDisplay() {
+    console.log('credits')
+    this.router.navigate(['credits']);
+  }
+
 }

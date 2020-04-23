@@ -8,7 +8,7 @@ A Hacking Based Desktop Game built using Electron and Angular.
 - Game Background Photo by Clint Patterson on Unsplash
 - Sound Effects: from https://notificationsounds.com/sound-effects and http://soundbible.com/tags-alert.html
 - Game Cursor from YAWD - https://www.ya-webdesign.com/
-- Fonts:
+- Text Fonts:
     - HACKED by DavidLibeau
     - Helvetica by Linotype
-
+- Icon Font: Ionicons by Ionic Team.

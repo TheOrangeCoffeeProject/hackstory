@@ -268,3 +268,14 @@
     clip: rect(0px, 450px, 0px, 0px);
   }
 }
+
+.credits_button {
+    position: absolute;
+    top: 2rem;
+    right: 6rem;
+    font-size: 1.8rem;
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}

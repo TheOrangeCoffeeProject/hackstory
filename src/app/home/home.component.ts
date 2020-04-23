@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ipcRenderer } from 'electron'
+import { Howl } from 'howler';
 
 @Component({
   selector: 'app-home',
@@ -40,13 +41,16 @@ export class HomeComponent implements OnInit {
   }
 
   creditsDisplay() {
-    const audio = new Audio('../../assets/media/BGM/pull-back.mp3');
+    const audio = new Howl({
+      src: ['./assets/media/BGM/pull-back.mp3']
+    });
+    // const audio = new Audio('../../assets/media/BGM/pull-back.mp3');
     audio.play();
     this.router.navigate(['credits']);
   }
 
   quitApp() {
-    const audio = new Audio('../../assets/media/BGM/pull-back.mp3');
+    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
     audio.play();
     ipcRenderer.send('quitGame')
   }

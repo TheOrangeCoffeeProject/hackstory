@@ -14,7 +14,7 @@ export class CreditsComponent implements OnInit {
   }
 
   goToSplashScreen() {
-    const audio = new Audio('../../assets/media/BGM/pull-back.mp3');
+    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
     audio.play();
     this.router.navigate(['']);
   }

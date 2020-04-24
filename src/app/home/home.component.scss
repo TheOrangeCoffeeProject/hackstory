@@ -47,6 +47,29 @@
   left: 11.5%;
   transition-duration: 0.5s;
 }
+.saveGameLoader {
+  min-height: auto;
+  max-height: 40vh;
+  overflow: scroll;
+  width: 60%;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 150%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Helvetica";
+  background-color: rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  transition-duration: 0.5s;
+  h1 {
+    font-size: 0.85em;
+    letter-spacing: 0.35em;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+}
 .newGameCreator {
   width: 40%;
   padding: 20px;

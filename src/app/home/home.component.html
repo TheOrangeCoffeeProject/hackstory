@@ -37,6 +37,21 @@
   <button id="createGameButton" (click)="startNewGame()" class="testing centralised" data-text="START GAME">START Game</button>
   <p id="creating">CREATING NEW GAME...</p>
 </div>
+<div class="saveGameLoader" id="saveGameLoader">
+  <!-- <h1>Saved Games</h1> -->
+  <div id="savedGamesBlock">
+    <div class="saveGame">
+      <div class="left">
+        <h3>24/04/2020 @ 01:12:23</h3>
+        <h4>BOBBY</h4>
+      </div>
+      <div class="right">
+        <button class="loadGameButton" data-text="Load Game">Load Game</button>
+        <button class="deleteGameButton" data-text="Delete Game">Delete Game</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="alertBox" id="alertBox">
   <div class="titleContainer"><span id="alertTitle">Alert</span><span (click)="closeAlert()" class="closeSpanButton">&times;</span></div>
   <div class="message">

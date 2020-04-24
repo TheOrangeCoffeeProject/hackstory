@@ -16,7 +16,7 @@ body {
   padding: 0;
   overflow: hidden;
   height: 100%;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   -webkit-user-select: none;
   cursor: url("./assets/media/images/cursor.png"), auto;
 }
@@ -158,6 +158,146 @@ a {
   top: 35%;
   left: 11.5%;
   transition-duration: 0.5s;
+}
+.saveGame {
+  padding: 20px 40px;
+  width: 90%;
+  margin: 15px auto;
+  color: white;
+  font-family: "Helvetica";
+  background-color: rgba(0, 0, 0, 0.9);
+  display: grid;
+  grid-template-columns: auto auto;
+  .left {
+    h3 {
+      font-size: 0.75em;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    h4 {
+      font-size: 0.9em;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+  }
+  .right {
+    text-align: right;
+    .loadGameButton {
+      display: inline-block;
+      font-family: "Helvetica";
+      position: relative;
+      background: none;
+      border: none;
+      color: white;
+      outline: none;
+      padding: 15px 30px;
+      font-size: 0.75em;
+      letter-spacing: 0.35em;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1px solid hsla(0, 0%, 100%, 0.2);
+      transition: all 0.2s ease;
+      margin-right: 15px;
+      margin-top: 15px;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 8px 0;
+        width: 100%;
+        -webkit-clip: rect(0px, 0px, 0px, 0px);
+        clip: rect(0px, 0px, 0px, 0px);
+        background: #fff;
+        color: #000;
+      }
+
+      &:before {
+        left: 0px;
+        top: 0px;
+        text-shadow: 2px 0 #fff;
+        box-shadow: 2px 0 #fff;
+      }
+
+      &:after {
+        left: 2px;
+        bottom: -2px;
+        text-shadow: -1px 0 #fff;
+        box-shadow: -1px 0 #fff;
+      }
+
+      &:hover {
+        background: white;
+        color: black;
+      }
+
+      &:hover:before {
+        animation: glitch-test 1.5s infinite linear alternate-reverse;
+      }
+
+      &:hover:after {
+        animation: glitch-test 2s infinite linear alternate;
+      }
+    }
+    .deleteGameButton {
+      display: inline-block;
+      font-family: "Helvetica";
+      position: relative;
+      background: none;
+      border: none;
+      color: white;
+      outline: none;
+      padding: 15px 30px;
+      font-size: 0.75em;
+      letter-spacing: 0.35em;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1px solid hsla(0, 0%, 100%, 0.2);
+      transition: all 0.2s ease;
+      margin-top: 15px;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 8px 0;
+        width: 100%;
+        -webkit-clip: rect(0px, 0px, 0px, 0px);
+        clip: rect(0px, 0px, 0px, 0px);
+        background: red;
+        color: white;
+      }
+
+      &:before {
+        left: 0px;
+        top: 0px;
+        text-shadow: 2px 0 red;
+        box-shadow: 2px 0 red;
+      }
+
+      &:after {
+        left: 2px;
+        bottom: -2px;
+        text-shadow: -1px 0 red;
+        box-shadow: -1px 0 red;
+      }
+
+      &:hover {
+        background: red;
+        color: white;
+      }
+
+      &:hover:before {
+        animation: glitch-test 1.5s infinite linear alternate-reverse;
+      }
+
+      &:hover:after {
+        animation: glitch-test 2s infinite linear alternate;
+      }
+    }
+  }
 }
 .testing {
   margin-left: -16px;

@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
     $('#cancelNewGame').addClass('slideInFromLeft');
     $('#newGameCreator').addClass('slideInFromRight');
   }
-
+  
   cancelNewGame() {
     const audio = new Audio('./assets/media/BGM/pull-back.mp3');
     audio.play();
@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
     $('#cancelNewGame').removeClass('slideInFromLeft');
     $('#newGameCreator').removeClass('slideInFromRight');
   }
-
+  
   closeAlert() {
     const audio = new Audio('./assets/media/BGM/pull-back.mp3');
     audio.play();
@@ -99,6 +99,7 @@ export class HomeComponent implements OnInit {
     $('#nav_buttons').addClass('slideOut');
     $('#title_container').addClass('toTheRight');
     $('#cancelLoadGame').addClass('slideInFromLeft');
+    $('#saveGameLoader').addClass('slideInFromRight');
   }
 
   cancelLoadGame() {
@@ -107,6 +108,7 @@ export class HomeComponent implements OnInit {
     $('#nav_buttons').removeClass('slideOut');
     $('#title_container').removeClass('toTheRight');
     $('#cancelLoadGame').removeClass('slideInFromLeft');
+    $('#saveGameLoader').removeClass('slideInFromRight');
     this.ifSaveGamesPresent();
   }
 

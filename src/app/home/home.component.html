@@ -12,14 +12,18 @@
   <div class="glow">HACKSTORY</div>
 </div> -->
 <div class="row">
-  <div class="container">
+  <div id="title_container" class="container">
     <div class="glitch" data-text="HACKSTORY">HACKSTORY</div>
     <div class="glow">HACKSTORY</div>
   </div>
-  <div class="section">
+  <div id="nav_buttons" class="section">
     <button class="testing" (click)="newGame()" data-text="NEW GAME">New Game</button>
     <button class="testing" data-text="LOAD GAME">Load Game</button>
     <button (click)="creditsDisplay()" class="testing" data-text="CREDITS">CREDITS</button>
     <button class="testing" (click)="quitApp()" data-text="EXIT GAME">Exit Game</button>
   </div>
+</div>
+
+<div (click)="cancelNewGame()" id="cancelNewGame" class="cancelNewGame">
+  <button class="testing" data-text="Back">Back</button>
 </div>

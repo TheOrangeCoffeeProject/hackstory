@@ -26,6 +26,7 @@
   transform: translate(-50%, -50%);
   top: 20%;
   left: 30%;
+  transition-duration: 0.5s;
 }
 
 .glitch {
@@ -44,8 +45,7 @@
   //   text-shadow: -5px 0 rgb(255, 160, 255);
   overflow: hidden;
   top: 0;
-  animation: noise-1 3s linear infinite alternate-reverse,
-    glitch 5s 5.05s infinite;
+  animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
 }
 
 .glitch::after {
@@ -102,12 +102,7 @@
   top: 0;
   left: 0;
 
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(255, 255, 255, 0.05) 0.5%,
-    transparent 1%
-  );
+  background: repeating-linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.05) 0.5%, transparent 1%);
 
   animation: fudge 7s ease-in-out alternate infinite;
 }
@@ -151,11 +146,12 @@
   position: absolute;
   top: 35%;
   left: 11.5%;
+  transition-duration: 0.5s;
 }
 .testing {
   margin-left: -16px;
   display: block;
-  font-family: 'Helvetica';
+  font-family: "Helvetica";
   position: relative;
   background: none;
   border: none;
@@ -271,12 +267,34 @@
 }
 
 .credits_button {
-    position: absolute;
-    top: 2rem;
-    right: 6rem;
-    font-size: 1.8rem;
-    color: white;
-    background-color: transparent;
-    border: none;
-    outline: none;
+  position: absolute;
+  top: 2rem;
+  right: 6rem;
+  font-size: 1.8rem;
+  color: white;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.cancelNewGame {
+  position: absolute;
+  bottom: 5em;
+  left: -50%;
+  transition-duration: 0.5s;
+}
+
+.slideOut {
+  left: -25%;
+  transition-duration: 0.5s;
+}
+
+.toTheRight {
+  left: 50%;
+  transition-duration: 0.5s;
+}
+
+.slideInFromLeft {
+  left: 11.5%;
+  transition-duration: 0.5s;
 }

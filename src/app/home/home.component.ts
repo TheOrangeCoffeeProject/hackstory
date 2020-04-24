@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ipcRenderer } from 'electron'
 import { Howl } from 'howler';
+import * as $ from 'jquery';
 import * as db from 'node-localdb-modern';
+const Cryptr = require('cryptr');
+require('dotenv').config();
 
 @Component({
   selector: 'app-home',
@@ -59,7 +62,23 @@ export class HomeComponent implements OnInit {
   newGame() {
     const audio = new Audio('./assets/media/BGM/pull-back.mp3');
     audio.play();
-    const savegameDB = db('./savegames.db');
+    // const savegameDB = db('./savegames.db');
+    $('#nav_buttons').addClass('slideOut');
+    $('#title_container').addClass('toTheRight');
+    $('#cancelNewGame').addClass('slideInFromLeft');
+    // savegameDB.count({}).then(count => {
+    //   if (count < 6) {
+    //     const secret = process.env.ENCRYPTION_KEY;
+    //   }
+    // })
+  }
+
+  cancelNewGame() {
+    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+    audio.play();
+    $('#nav_buttons').removeClass('slideOut');
+    $('#title_container').removeClass('toTheRight');
+    $('#cancelNewGame').removeClass('slideInFromLeft');
   }
 
 }

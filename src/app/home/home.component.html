@@ -18,13 +18,16 @@
   </div>
   <div id="nav_buttons" class="section">
     <button class="testing" (click)="newGame()" data-text="NEW GAME">New Game</button>
-    <button id="loadSavedGames" class="testing" data-text="LOAD GAME">Load Game</button>
+    <button id="loadSavedGames" class="testing" (click)="loadSavedGames()" data-text="LOAD GAME">Load Game</button>
     <button (click)="creditsDisplay()" class="testing" data-text="CREDITS">CREDITS</button>
     <button class="testing" (click)="quitApp()" data-text="EXIT GAME">Exit Game</button>
   </div>
 </div>
 
 <div (click)="cancelNewGame()" id="cancelNewGame" class="cancelNewGame">
+  <button class="testing" data-text="Back">Back</button>
+</div>
+<div (click)="cancelLoadGame()" id="cancelLoadGame" class="cancelNewGame">
   <button class="testing" data-text="Back">Back</button>
 </div>
 <div class="newGameCreator" id="newGameCreator">

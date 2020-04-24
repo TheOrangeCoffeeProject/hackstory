@@ -92,6 +92,23 @@ export class HomeComponent implements OnInit {
     audio.play();
     $('#alertBox').hide();
   }
+  
+  loadSavedGames() {
+    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+    audio.play();
+    $('#nav_buttons').addClass('slideOut');
+    $('#title_container').addClass('toTheRight');
+    $('#cancelLoadGame').addClass('slideInFromLeft');
+  }
+
+  cancelLoadGame() {
+    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+    audio.play();
+    $('#nav_buttons').removeClass('slideOut');
+    $('#title_container').removeClass('toTheRight');
+    $('#cancelLoadGame').removeClass('slideInFromLeft');
+    this.ifSaveGamesPresent();
+  }
 
   startNewGame() {
     const username = $('#username').val();

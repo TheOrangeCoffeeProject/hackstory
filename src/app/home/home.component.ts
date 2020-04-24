@@ -120,19 +120,19 @@ export class HomeComponent implements OnInit {
           audio.play();
           $('#alertBox').show();
         } else {
-          const audio = new Audio('./assets/media/BGM/pull-back.mp3');
-          audio.play();
           const secret = process.env.ENCRYPTION_KEY;
           const cryptr = new Cryptr(secret);
           const currentdate = new Date();
           const datetime = currentdate.getDate() + "/"
-            + (currentdate.getMonth() + 1) + "/"
-            + currentdate.getFullYear() + " @ "
-            + currentdate.getHours() + ":"
-            + currentdate.getMinutes() + ":"
-            + currentdate.getSeconds();
+          + (currentdate.getMonth() + 1) + "/"
+          + currentdate.getFullYear() + " @ "
+          + currentdate.getHours() + ":"
+          + currentdate.getMinutes() + ":"
+          + currentdate.getSeconds();
           savegameDB.count({}).then(count => {
-            if (count < 6) {
+            if (count < 5) {
+              const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+              audio.play();
               const saveGameData = {
                 username,
                 password,
@@ -175,6 +175,11 @@ export class HomeComponent implements OnInit {
                 .then((data) => {
                   console.log(data)
                 });
+            } else {
+              $('#messageAlert').text(`This game can store upto 5 save games. You already have 5 save games. Please delete a save game before creating a new game.`)
+              const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+              audio.play();
+              $('#alertBox').show();
             }
           })
         }

@@ -88,6 +88,8 @@ export class HomeComponent implements OnInit {
   }
 
   closeAlert() {
+    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+    audio.play();
     $('#alertBox').hide();
   }
 
@@ -110,64 +112,73 @@ export class HomeComponent implements OnInit {
       audio.play();
       $('#alertBox').show();
     } else {
-      const audio = new Audio('./assets/media/BGM/pull-back.mp3');
-      audio.play();
-      const secret = process.env.ENCRYPTION_KEY;
       const savegameDB = db('./savegames.db');
-      const cryptr = new Cryptr(secret);
-      const currentdate = new Date();
-      const datetime = currentdate.getDate() + "/"
-        + (currentdate.getMonth() + 1) + "/"
-        + currentdate.getFullYear() + " @ "
-        + currentdate.getHours() + ":"
-        + currentdate.getMinutes() + ":"
-        + currentdate.getSeconds();
-      savegameDB.count({}).then(count => {
-        if (count < 6) {
-          const saveGameData = {
-            username,
-            password,
-            level: 1,
-            money: 500,
-            skillslevel: 0,
-            software: [],
-            courseTaken: [],
-            courseAvailable: [],
-            knownWifiNetworks: [],
-            wifiNetworksAvailable: [],
-            purchasedItems: {
-              CPU: [0],
-              RAM: [0],
-              WifiCard: [0],
-              Bluetooth: [],
-              Storage: [0]
-            },
-            installedItems: {
-              CPU: [0],
-              RAM: [0],
-              WifiCard: [0],
-              Bluetooth: [],
-              Storage: [0]
-            },
-            availableForPurchase: {
-              CPU: [],
-              RAM: [],
-              WifiCard: [],
-              Bluetooth: [],
-              Storage: []
-            },
-            files: [],
-            gameIat: datetime
-          }
-          const encryptedData = cryptr.encrypt(JSON.stringify(saveGameData));
-          // const decryptedString = cryptr.decrypt(encryptedData);
-          savegameDB
-            .insert({ username, encryptedData })
-            .then((data) => {
-              console.log(data)
-            });
+      savegameDB.findOne({ username: username }).then((data) => {
+        if (data) {
+          $('#messageAlert').text(`User with username: ${username} already exists. Please choose a different username.`)
+          const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+          audio.play();
+          $('#alertBox').show();
+        } else {
+          const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+          audio.play();
+          const secret = process.env.ENCRYPTION_KEY;
+          const cryptr = new Cryptr(secret);
+          const currentdate = new Date();
+          const datetime = currentdate.getDate() + "/"
+            + (currentdate.getMonth() + 1) + "/"
+            + currentdate.getFullYear() + " @ "
+            + currentdate.getHours() + ":"
+            + currentdate.getMinutes() + ":"
+            + currentdate.getSeconds();
+          savegameDB.count({}).then(count => {
+            if (count < 6) {
+              const saveGameData = {
+                username,
+                password,
+                level: 1,
+                money: 500,
+                skillslevel: 0,
+                software: [],
+                courseTaken: [],
+                courseAvailable: [],
+                knownWifiNetworks: [],
+                wifiNetworksAvailable: [],
+                purchasedItems: {
+                  CPU: [0],
+                  RAM: [0],
+                  WifiCard: [0],
+                  Bluetooth: [],
+                  Storage: [0]
+                },
+                installedItems: {
+                  CPU: [0],
+                  RAM: [0],
+                  WifiCard: [0],
+                  Bluetooth: [],
+                  Storage: [0]
+                },
+                availableForPurchase: {
+                  CPU: [],
+                  RAM: [],
+                  WifiCard: [],
+                  Bluetooth: [],
+                  Storage: []
+                },
+                files: [],
+                gameIat: datetime
+              }
+              const encryptedData = cryptr.encrypt(JSON.stringify(saveGameData));
+              // const decryptedString = cryptr.decrypt(encryptedData);
+              savegameDB
+                .insert({ username, encryptedData })
+                .then((data) => {
+                  console.log(data)
+                });
+            }
+          })
         }
-      })
+      });
     }
   }
 

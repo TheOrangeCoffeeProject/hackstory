@@ -33,6 +33,7 @@
     <div class="glow">HACKSTORY</div>
   </div>
   <div id="nav_buttons" class="section">
+<<<<<<< HEAD
     <button class="testing" (click)="newGame()" data-text="NEW GAME">
       New Game
     </button>
@@ -45,15 +46,54 @@
     <button class="testing" (click)="quitApp()" data-text="EXIT GAME">
       Exit Game
     </button>
+=======
+    <button class="testing" (click)="newGame()" data-text="NEW GAME">New Game</button>
+    <button id="loadSavedGames" class="testing" (click)="loadSavedGames()" data-text="LOAD GAME">Load Game</button>
+    <button (click)="creditsDisplay()" class="testing" data-text="CREDITS">CREDITS</button>
+    <button class="testing" (click)="quitApp()" data-text="EXIT GAME">Exit Game</button>
+>>>>>>> 6306b928684d621ec8a04a26f5974b3b5f620478
   </div>
 </div>
 
 <div (click)="cancelNewGame()" id="cancelNewGame" class="cancelNewGame">
   <button class="testing" data-text="Back">Back</button>
 </div>
+<div (click)="cancelLoadGame()" id="cancelLoadGame" class="cancelNewGame">
+  <button class="testing" data-text="Back">Back</button>
+</div>
 <div class="newGameCreator" id="newGameCreator">
   <h1>Start a new Game</h1>
+<<<<<<< HEAD
   <input type="text" id="username" placeholder="username" />
   <input type="password" id="password" placeholder="password" />
   <button class="testing centralised" data-text="START GAME">START Game</button>
 </div>
+=======
+  <input type="text" id="username" placeholder="username">
+  <input type="password" id="password" placeholder="password">
+  <button id="createGameButton" (click)="startNewGame()" class="testing centralised" data-text="START GAME">START Game</button>
+  <p id="creating">CREATING NEW GAME...</p>
+</div>
+<div class="saveGameLoader" id="saveGameLoader">
+  <!-- <h1>Saved Games</h1> -->
+  <div id="savedGamesBlock">
+    <div class="saveGame">
+      <div class="left">
+        <h3>24/04/2020 @ 01:12:23</h3>
+        <h4>BOBBY</h4>
+      </div>
+      <div class="right">
+        <button class="loadGameButton" data-text="Load Game">Load Game</button>
+        <button class="deleteGameButton" data-text="Delete Game">Delete Game</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="alertBox" id="alertBox">
+  <div class="titleContainer"><span id="alertTitle">Alert</span><span (click)="closeAlert()" class="closeSpanButton">&times;</span></div>
+  <div class="message">
+    <p id="messageAlert"></p>
+    <button (click)="closeAlert()" class="confirmButton">OKAY</button>
+  </div>
+</div>
+>>>>>>> 6306b928684d621ec8a04a26f5974b3b5f620478

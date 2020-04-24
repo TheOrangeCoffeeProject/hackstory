@@ -90,12 +90,7 @@ export class HomeComponent implements OnInit {
     const savegameDB = db("./savegames.db");
     savegameDB.count({}).then((count) => {
       if (count === 0) {
-<<<<<<< HEAD
         $("#loadSavedGames").hide();
-        // const secret = process.env.ENCRYPTION_KEY;
-=======
-        $('#loadSavedGames').hide();
->>>>>>> 6306b928684d621ec8a04a26f5974b3b5f620478
       }
     });
   }
@@ -108,7 +103,7 @@ export class HomeComponent implements OnInit {
     $("#cancelNewGame").addClass("slideInFromLeft");
     $("#newGameCreator").addClass("slideInFromRight");
   }
-  
+
   cancelNewGame() {
     const audio = new Audio("./assets/media/BGM/pull-back.mp3");
     audio.play();
@@ -117,73 +112,81 @@ export class HomeComponent implements OnInit {
     $("#cancelNewGame").removeClass("slideInFromLeft");
     $("#newGameCreator").removeClass("slideInFromRight");
   }
-<<<<<<< HEAD
-=======
-  
+
   closeAlert() {
-    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+    const audio = new Audio("./assets/media/BGM/pull-back.mp3");
     audio.play();
-    $('#alertBox').hide();
+    $("#alertBox").hide();
   }
-  
+
   loadSavedGames() {
-    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+    const audio = new Audio("./assets/media/BGM/pull-back.mp3");
     audio.play();
-    $('#nav_buttons').addClass('slideOut');
-    $('#title_container').addClass('toTheRight');
-    $('#cancelLoadGame').addClass('slideInFromLeft');
-    $('#saveGameLoader').addClass('slideInFromRight');
+    $("#nav_buttons").addClass("slideOut");
+    $("#title_container").addClass("toTheRight");
+    $("#cancelLoadGame").addClass("slideInFromLeft");
+    $("#saveGameLoader").addClass("slideInFromRight");
   }
 
   cancelLoadGame() {
-    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+    const audio = new Audio("./assets/media/BGM/pull-back.mp3");
     audio.play();
-    $('#nav_buttons').removeClass('slideOut');
-    $('#title_container').removeClass('toTheRight');
-    $('#cancelLoadGame').removeClass('slideInFromLeft');
-    $('#saveGameLoader').removeClass('slideInFromRight');
+    $("#nav_buttons").removeClass("slideOut");
+    $("#title_container").removeClass("toTheRight");
+    $("#cancelLoadGame").removeClass("slideInFromLeft");
+    $("#saveGameLoader").removeClass("slideInFromRight");
     this.ifSaveGamesPresent();
   }
 
   startNewGame() {
-    const username = $('#username').val();
-    const password = $('#password').val();
-    if (username === '' && password === '') {
-      $('#messageAlert').text('Please enter username and password to start a new game.')
-      const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+    const username = $("#username").val();
+    const password = $("#password").val();
+    if (username === "" && password === "") {
+      $("#messageAlert").text(
+        "Please enter username and password to start a new game."
+      );
+      const audio = new Audio("./assets/media/BGM/nasty-error-long.mp3");
       audio.play();
-      $('#alertBox').show();
-    } else if (username === '' && password !== '') {
-      $('#messageAlert').text('Please enter username to start a new game.')
-      const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+      $("#alertBox").show();
+    } else if (username === "" && password !== "") {
+      $("#messageAlert").text("Please enter username to start a new game.");
+      const audio = new Audio("./assets/media/BGM/nasty-error-long.mp3");
       audio.play();
-      $('#alertBox').show();
-    } else if (username !== '' && password === '') {
-      $('#messageAlert').text('Please enter password to start a new game.')
-      const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+      $("#alertBox").show();
+    } else if (username !== "" && password === "") {
+      $("#messageAlert").text("Please enter password to start a new game.");
+      const audio = new Audio("./assets/media/BGM/nasty-error-long.mp3");
       audio.play();
-      $('#alertBox').show();
+      $("#alertBox").show();
     } else {
-      const savegameDB = db('./savegames.db');
+      const savegameDB = db("./savegames.db");
       savegameDB.findOne({ username: username }).then((data) => {
         if (data) {
-          $('#messageAlert').text(`User with username: ${username} already exists. Please choose a different username.`)
-          const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+          $("#messageAlert").text(
+            `User with username: ${username} already exists. Please choose a different username.`
+          );
+          const audio = new Audio("./assets/media/BGM/nasty-error-long.mp3");
           audio.play();
-          $('#alertBox').show();
+          $("#alertBox").show();
         } else {
           const secret = process.env.ENCRYPTION_KEY;
           const cryptr = new Cryptr(secret);
           const currentdate = new Date();
-          const datetime = currentdate.getDate() + "/"
-          + (currentdate.getMonth() + 1) + "/"
-          + currentdate.getFullYear() + " @ "
-          + currentdate.getHours() + ":"
-          + currentdate.getMinutes() + ":"
-          + currentdate.getSeconds();
-          savegameDB.count({}).then(count => {
+          const datetime =
+            currentdate.getDate() +
+            "/" +
+            (currentdate.getMonth() + 1) +
+            "/" +
+            currentdate.getFullYear() +
+            " @ " +
+            currentdate.getHours() +
+            ":" +
+            currentdate.getMinutes() +
+            ":" +
+            currentdate.getSeconds();
+          savegameDB.count({}).then((count) => {
             if (count < 5) {
-              const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+              const audio = new Audio("./assets/media/BGM/pull-back.mp3");
               audio.play();
               const saveGameData = {
                 username,
@@ -201,43 +204,45 @@ export class HomeComponent implements OnInit {
                   RAM: [0],
                   WifiCard: [0],
                   Bluetooth: [],
-                  Storage: [0]
+                  Storage: [0],
                 },
                 installedItems: {
                   CPU: [0],
                   RAM: [0],
                   WifiCard: [0],
                   Bluetooth: [],
-                  Storage: [0]
+                  Storage: [0],
                 },
                 availableForPurchase: {
                   CPU: [],
                   RAM: [],
                   WifiCard: [],
                   Bluetooth: [],
-                  Storage: []
+                  Storage: [],
                 },
                 files: [],
-                gameIat: datetime
-              }
-              const encryptedData = cryptr.encrypt(JSON.stringify(saveGameData));
+                gameIat: datetime,
+              };
+              const encryptedData = cryptr.encrypt(
+                JSON.stringify(saveGameData)
+              );
               // const decryptedString = cryptr.decrypt(encryptedData);
-              savegameDB
-                .insert({ username, encryptedData })
-                .then((data) => {
-                  console.log(data)
-                });
+              savegameDB.insert({ username, encryptedData }).then((data) => {
+                console.log(data);
+              });
             } else {
-              $('#messageAlert').text(`This game can store upto 5 save games. You already have 5 save games. Please delete a save game before creating a new game.`)
-              const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+              $("#messageAlert").text(
+                `This game can store upto 5 save games. You already have 5 save games. Please delete a save game before creating a new game.`
+              );
+              const audio = new Audio(
+                "./assets/media/BGM/nasty-error-long.mp3"
+              );
               audio.play();
-              $('#alertBox').show();
+              $("#alertBox").show();
             }
-          })
+          });
         }
       });
     }
   }
-
->>>>>>> 6306b928684d621ec8a04a26f5974b3b5f620478
 }

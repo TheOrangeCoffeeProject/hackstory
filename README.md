@@ -12,3 +12,5 @@ A Hacking Based Desktop Game built using Electron and Angular.
     - HACKED by DavidLibeau
     - Helvetica by Linotype
 - Icon Font: Ionicons by Ionic Team.
+- Orb animation WIP by Aleksey Tsvetkov.
+- Animate CSS Library by Daniel Eden.

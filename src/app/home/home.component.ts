@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ipcRenderer } from 'electron'
 import { Howl } from 'howler';
+import * as db from 'node-localdb-modern';
 
 @Component({
   selector: 'app-home',
@@ -53,6 +54,12 @@ export class HomeComponent implements OnInit {
     const audio = new Audio('./assets/media/BGM/pull-back.mp3');
     audio.play();
     ipcRenderer.send('quitGame')
+  }
+
+  newGame() {
+    const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+    audio.play();
+    const savegameDB = db('./savegames.db');
   }
 
 }

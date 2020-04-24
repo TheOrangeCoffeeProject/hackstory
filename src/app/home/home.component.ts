@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.playBGMusic();
+    this.ifSaveGamesPresent();
   }
 
   playBGMusic() {
@@ -59,18 +60,22 @@ export class HomeComponent implements OnInit {
     ipcRenderer.send('quitGame')
   }
 
+  ifSaveGamesPresent() {
+    const savegameDB = db('./savegames.db');
+    savegameDB.count({}).then(count => {
+      if (count === 0) {
+        $('#loadSavedGames').hide();
+        // const secret = process.env.ENCRYPTION_KEY;
+      }
+    })
+  }
+
   newGame() {
     const audio = new Audio('./assets/media/BGM/pull-back.mp3');
     audio.play();
-    // const savegameDB = db('./savegames.db');
     $('#nav_buttons').addClass('slideOut');
     $('#title_container').addClass('toTheRight');
     $('#cancelNewGame').addClass('slideInFromLeft');
-    // savegameDB.count({}).then(count => {
-    //   if (count < 6) {
-    //     const secret = process.env.ENCRYPTION_KEY;
-    //   }
-    // })
   }
 
   cancelNewGame() {

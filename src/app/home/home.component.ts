@@ -14,6 +14,8 @@ require("dotenv").config();
 })
 export class HomeComponent implements OnInit {
   fullScreen = true;
+  savedGames = [];
+  listOfSavedGames = [];
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -126,6 +128,34 @@ export class HomeComponent implements OnInit {
     $("#title_container").addClass("toTheRight");
     $("#cancelLoadGame").addClass("slideInFromLeft");
     $("#saveGameLoader").addClass("slideInFromRight");
+    this.loadSaveGamesDB();
+  }
+
+  loadSaveGamesDB() {
+    const savegameDB = db("./savegames.db");
+    savegameDB.find({}, { limit: 5 }).then((data) => {
+      $("#savedGamesBlock").empty();
+      data.forEach((element) => {
+        const encryptedData = element.encryptedData;
+        const secret = process.env.ENCRYPTION_KEY;
+        const cryptr = new Cryptr(secret);
+        const decryptedData = JSON.parse(cryptr.decrypt(encryptedData));
+        // console.log(decryptedData);
+        $("#savedGamesBlock").append(`
+        <div id='${decryptedData.username}' class="saveGame">
+         <div class="left">
+            <h3>${decryptedData.gameIat}</h3>
+            <h4>${decryptedData.username} (Level ${decryptedData.level})</h4>
+          </div>
+          <div class="right">
+           <button class="loadGameButton" data-text="Load Game">Load Game</button>
+           <button class="deleteGameButton" data-text="Delete Game">
+             Delete Game
+           </button>
+          </div>
+       </div>`);
+      });
+    });
   }
 
   cancelLoadGame() {

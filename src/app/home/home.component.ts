@@ -76,6 +76,7 @@ export class HomeComponent implements OnInit {
     $('#nav_buttons').addClass('slideOut');
     $('#title_container').addClass('toTheRight');
     $('#cancelNewGame').addClass('slideInFromLeft');
+    $('#newGameCreator').addClass('slideInFromRight');
   }
 
   cancelNewGame() {
@@ -84,6 +85,7 @@ export class HomeComponent implements OnInit {
     $('#nav_buttons').removeClass('slideOut');
     $('#title_container').removeClass('toTheRight');
     $('#cancelNewGame').removeClass('slideInFromLeft');
+    $('#newGameCreator').removeClass('slideInFromRight');
   }
 
 }

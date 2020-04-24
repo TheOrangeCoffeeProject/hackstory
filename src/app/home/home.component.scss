@@ -47,3 +47,52 @@
   left: 11.5%;
   transition-duration: 0.5s;
 }
+.newGameCreator {
+  width: 40%;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 150%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Helvetica";
+  background-color: rgba(0, 0, 0, 0.7);
+  // display: none;
+  visibility: hidden;
+  transition-duration: 0.5s;
+  h1 {
+    font-size: 0.85em;
+    letter-spacing: 0.35em;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+  input {
+    display: block;
+    width: 75%;
+    margin: 20px auto;
+    padding: 8px 30px;
+    border: solid 1px black;
+    font-size: 0.75em;
+    letter-spacing: 0.35em;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 30px;
+    outline: none;
+    text-transform: uppercase;
+  }
+  ::placeholder {
+    font-size: 0.75em;
+    letter-spacing: 0.35em;
+  }
+}
+.centralised {
+  display: block;
+  margin: 0 auto;
+  height: 48px;
+}
+.slideInFromRight {
+  left: 50%;
+  transition-duration: 0.5s;
+  // display: block;
+  visibility: visible;
+}

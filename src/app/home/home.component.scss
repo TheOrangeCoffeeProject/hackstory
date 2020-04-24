@@ -67,6 +67,15 @@
     text-transform: uppercase;
     margin-bottom: 50px;
   }
+  p {
+    font-size: 0.75em;
+    letter-spacing: 0.35em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  #creating {
+    display: none;
+  }
   input {
     display: block;
     width: 75%;
@@ -95,4 +104,60 @@
   transition-duration: 0.5s;
   // display: block;
   visibility: visible;
+}
+.alertBox {
+  display: none;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+  color: white;
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.25);
+  font-family: "Helvetica";
+  font-size: 0.75em;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  .titleContainer {
+    background-color: rgb(27, 27, 27);
+    padding: 15px 20px;
+    .closeSpanButton {
+      float: right;
+      background-color: #fff;
+      color: black;
+      padding: 9px 13.1px 13.1px 17px;
+      font-size: 1.1rem;
+      position: relative;
+      top: -14.1px;
+      left: 19.5px;
+    }
+  }
+  .message {
+    background-color: rgb(170, 170, 170);
+    padding: 30px 15%;
+    text-align: center;
+    font-family: "Helvetica";
+    font-size: 0.75em;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .confirmButton {
+      background-color: rgb(27, 27, 27);
+      padding: 15px 45px;
+      border: none;
+      outline: none;
+      color: white;
+      font-family: "Helvetica";
+      font-size: 1.2em;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+  }
 }

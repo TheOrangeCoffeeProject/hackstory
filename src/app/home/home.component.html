@@ -31,5 +31,13 @@
   <h1>Start a new Game</h1>
   <input type="text" id="username" placeholder="username">
   <input type="password" id="password" placeholder="password">
-  <button class="testing centralised" data-text="START GAME">START Game</button>
+  <button id="createGameButton" (click)="startNewGame()" class="testing centralised" data-text="START GAME">START Game</button>
+  <p id="creating">CREATING NEW GAME...</p>
+</div>
+<div class="alertBox" id="alertBox">
+  <div class="titleContainer"><span id="alertTitle">Alert</span><span (click)="closeAlert()" class="closeSpanButton">&times;</span></div>
+  <div class="message">
+    <p id="messageAlert"></p>
+    <button (click)="closeAlert()" class="confirmButton">OKAY</button>
+  </div>
 </div>

@@ -65,7 +65,6 @@ export class HomeComponent implements OnInit {
     savegameDB.count({}).then(count => {
       if (count === 0) {
         $('#loadSavedGames').hide();
-        // const secret = process.env.ENCRYPTION_KEY;
       }
     })
   }
@@ -86,6 +85,90 @@ export class HomeComponent implements OnInit {
     $('#title_container').removeClass('toTheRight');
     $('#cancelNewGame').removeClass('slideInFromLeft');
     $('#newGameCreator').removeClass('slideInFromRight');
+  }
+
+  closeAlert() {
+    $('#alertBox').hide();
+  }
+
+  startNewGame() {
+    const username = $('#username').val();
+    const password = $('#password').val();
+    if (username === '' && password === '') {
+      $('#messageAlert').text('Please enter username and password to start a new game.')
+      const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+      audio.play();
+      $('#alertBox').show();
+    } else if (username === '' && password !== '') {
+      $('#messageAlert').text('Please enter username to start a new game.')
+      const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+      audio.play();
+      $('#alertBox').show();
+    } else if (username !== '' && password === '') {
+      $('#messageAlert').text('Please enter password to start a new game.')
+      const audio = new Audio('./assets/media/BGM/nasty-error-long.mp3');
+      audio.play();
+      $('#alertBox').show();
+    } else {
+      const audio = new Audio('./assets/media/BGM/pull-back.mp3');
+      audio.play();
+      const secret = process.env.ENCRYPTION_KEY;
+      const savegameDB = db('./savegames.db');
+      const cryptr = new Cryptr(secret);
+      const currentdate = new Date();
+      const datetime = currentdate.getDate() + "/"
+        + (currentdate.getMonth() + 1) + "/"
+        + currentdate.getFullYear() + " @ "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+      savegameDB.count({}).then(count => {
+        if (count < 6) {
+          const saveGameData = {
+            username,
+            password,
+            level: 1,
+            money: 500,
+            skillslevel: 0,
+            software: [],
+            courseTaken: [],
+            courseAvailable: [],
+            knownWifiNetworks: [],
+            wifiNetworksAvailable: [],
+            purchasedItems: {
+              CPU: [0],
+              RAM: [0],
+              WifiCard: [0],
+              Bluetooth: [],
+              Storage: [0]
+            },
+            installedItems: {
+              CPU: [0],
+              RAM: [0],
+              WifiCard: [0],
+              Bluetooth: [],
+              Storage: [0]
+            },
+            availableForPurchase: {
+              CPU: [],
+              RAM: [],
+              WifiCard: [],
+              Bluetooth: [],
+              Storage: []
+            },
+            files: [],
+            gameIat: datetime
+          }
+          const encryptedData = cryptr.encrypt(JSON.stringify(saveGameData));
+          // const decryptedString = cryptr.decrypt(encryptedData);
+          savegameDB
+            .insert({ username, encryptedData })
+            .then((data) => {
+              console.log(data)
+            });
+        }
+      })
+    }
   }
 
 }

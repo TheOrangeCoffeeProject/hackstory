@@ -72,6 +72,9 @@
     margin-bottom: 50px;
   }
 }
+.saveGameLoader::-webkit-scrollbar {
+  display: none;
+}
 .newGameCreator {
   width: 40%;
   padding: 20px;

@@ -1,4 +1,6 @@
-# HackStory
+# HackStory 
+
+## [Abandoned for a few good reasons... 😊]
 
 A Hacking Based Desktop Game built using Electron and Angular.
 
